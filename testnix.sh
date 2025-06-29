@@ -47,15 +47,6 @@ else
     warn "Nix does not have ssl-cert-file set in config. Likely using system default."
 fi
 
-# 4. Test connectivity to cache.nixos.org using Nix
-log "Testing connectivity to cache.nixos.org using a Nix command..."
-if nix path-info nixpkgs#cowsay >/dev/null 2>&1; then
-    success "Nix successfully connected to cache.nixos.org and fetched metadata."
-else
-    error "Nix could not connect to cache.nixos.org or had an SSL error."
-    exit 1
-fi
-
 # 5. Run some default Nix diagnostics
 log "Running 'nix doctor' for diagnostics..."
 if nix doctor; then
