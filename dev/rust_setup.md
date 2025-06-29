@@ -1,0 +1,3 @@
+```
+rustup default stable
+```
