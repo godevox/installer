@@ -47,14 +47,15 @@ else
     warn "Nix does not have ssl-cert-file set in config. Likely using system default."
 fi
 
-# 5. Run some default Nix diagnostics
-log "Running 'nix doctor' for diagnostics..."
-if nix doctor; then
-    success "Nix doctor completed successfully."
+# 4. Run Nix configuration check
+log "Running 'nix config check' for diagnostics..."
+if nix config check; then
+    success "Nix configuration check completed successfully."
 else
-    warn "Nix doctor found issues. Please review the output above."
+    warn "Nix configuration check found issues. Please review the output above."
 fi
 
+# 5. Test basic Nix evaluation
 log "Testing basic Nix evaluation..."
 if nix eval --expr '1 + 1'; then
     success "Nix eval works."
@@ -62,4 +63,4 @@ else
     error "Nix eval failed."
 fi
 
-echo -e "${GREEN}\nAll Nix tests completed."
+echo -e "${GREEN}\nAll Nix tests completed. GoDevox Nix environment looks good!${NC}"
