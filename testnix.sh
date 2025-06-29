@@ -63,4 +63,12 @@ else
     error "Nix eval failed."
 fi
 
+# 6. Dry run build of hello package
+log "Performing dry-run build of 'hello' package to verify build and cache access..."
+if nix build --dry-run nixpkgs#hello; then
+    success "Dry-run build of 'hello' succeeded."
+else
+    error "Dry-run build of 'hello' failed."
+fi
+
 echo -e "${GREEN}\nAll Nix tests completed. GoDevox Nix environment looks good!${NC}"
