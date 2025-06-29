@@ -49,7 +49,7 @@ fi
 
 # 4. Test connectivity to cache.nixos.org using Nix
 log "Testing connectivity to cache.nixos.org using a Nix command..."
-if nix path-info nixpkgs#hello >/dev/null 2>&1; then
+if nix path-info nixpkgs#cowsay >/dev/null 2>&1; then
     success "Nix successfully connected to cache.nixos.org and fetched metadata."
 else
     error "Nix could not connect to cache.nixos.org or had an SSL error."
