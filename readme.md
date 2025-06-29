@@ -5,3 +5,7 @@ curl -fsSL https://raw.githubusercontent.com/godevox/installer/refs/heads/main/i
 ```code
 curl -fsSL https://raw.githubusercontent.com/godevox/installer/refs/heads/main/installv2.sh | bash
 ```
+
+```code
+curl -fsSL https://raw.githubusercontent.com/godevox/installer/refs/heads/main/testnix.sh | bash
+```
